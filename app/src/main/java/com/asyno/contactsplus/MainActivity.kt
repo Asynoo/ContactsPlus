@@ -48,9 +48,11 @@ class MainActivity : AppCompatActivity() {
             val f = contacts[position]
             val nameView = resView.findViewById<TextView>(R.id.tvNameExt)
             val phoneView = resView.findViewById<TextView>(R.id.tvPhoneExt)
+            val addressView = resView.findViewById<TextView>(R.id.tvAddressExt)
             val favoriteView = resView.findViewById<ImageView>(R.id.imgFavoriteExt)
                 nameView.text = f.name
-                phoneView.text = f.phone + " " +f.address
+                phoneView.text = "+45 " + f.phone
+                addressView.text = f.address
 
 
             favoriteView.setImageResource(R.drawable.user)

@@ -34,6 +34,14 @@
             android:text="PHONE"
             android:textStyle="bold"
             android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/tvAddressExt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADDRESS"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
     </LinearLayout>
 
 </LinearLayout>
