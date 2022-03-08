@@ -1,4 +1,6 @@
 package com.asyno.contactsplus
 
-class ContactActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class ContactActivity : AppCompatActivity(){
 }

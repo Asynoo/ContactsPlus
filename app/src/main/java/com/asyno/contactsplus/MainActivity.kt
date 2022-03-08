@@ -1,12 +1,16 @@
 package com.asyno.contactsplus
 
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
-import android.view.ContextMenu
+import android.view.*
 import android.view.ContextMenu.ContextMenuInfo
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.asyno.contactsplus.Models.BEContact
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,28 +20,42 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val adapter = ContactAdapter(this, Contacts().getAll())
+
+        lvContacts.adapter = adapter
+
+
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
+    internal class ContactAdapter(context: Context,
+                                 private val contacts: Array<BEContact>
+    ) : ArrayAdapter<BEContact>(context, 0, contacts)
+    {
+        private val colours = intArrayOf(
+            Color.parseColor("White"),
+            Color.parseColor("White")
+        )
 
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_settings -> {
-                true
+        override fun getView(position: Int, v: View?, parent: ViewGroup): View {
+            var v1: View? = v
+            if (v1 == null) {
+                val mInflater = LayoutInflater.from(context)
+                v1 = mInflater.inflate(R.layout.cell_extended, null)
             }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+            val resView: View = v1!!
+            resView.setBackgroundColor(colours[position % colours.size])
+            val f = contacts[position]
+            val nameView = resView.findViewById<TextView>(R.id.tvNameExt)
+            val phoneView = resView.findViewById<TextView>(R.id.tvPhoneExt)
+            val favoriteView = resView.findViewById<ImageView>(R.id.imgFavoriteExt)
+                nameView.text = f.name
+                phoneView.text = f.phone + " " +f.address
 
-    override fun onCreateContextMenu(
-        menu: ContextMenu?, v: View,
-        menuInfo: ContextMenuInfo?
-    ) {
-        super.onCreateContextMenu(menu, v, menuInfo)
+
+            favoriteView.setImageResource(R.drawable.user)
+
+            return resView
+        }
     }
 }
