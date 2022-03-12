@@ -1,8 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
     tools:context=".ContactActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Contact details:"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/nameTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/nameTV"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameTV"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:text="Name:"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/phoneTV"
+        app:layout_constraintEnd_toStartOf="@+id/nameET"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/nameET"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:inputType="text"
+        android:text="contactName"
+        app:layout_constraintBottom_toTopOf="@+id/phoneET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nameTV"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+    <TextView
+        android:id="@+id/phoneTV"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="466dp"
+        android:text="Phone:"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/phoneET"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameTV" />
+
+    <EditText
+        android:id="@+id/phoneET"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:inputType="phone"
+        android:text="contactNumber"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/phoneTV"
+        app:layout_constraintTop_toBottomOf="@+id/nameTV" />
+
+    <ToggleButton
+        android:id="@+id/favoriteBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="30dp"
+        app:layout_constraintTop_toBottomOf="@id/phoneTV"
+        app:layout_constraintRight_toRightOf="@id/phoneTV"
+        />
+
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:text="Favorite"
+        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="@id/favoriteBtn"
+        app:layout_constraintLeft_toRightOf="@id/phoneTV"
+        />
+
+    <Button
+        android:id="@+id/deleteBtn"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="delete"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="save"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
