@@ -1,6 +1,7 @@
 package com.asyno.contactsplus
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.*
@@ -8,6 +9,7 @@ import android.view.ContextMenu.ContextMenuInfo
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.asyno.contactsplus.Models.BEContact
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,8 +26,16 @@ class MainActivity : AppCompatActivity() {
 
         lvContacts.adapter = adapter
 
+        lvContacts.setOnItemClickListener { _,_,pos, _ -> onListItemClick(pos) }
+    }
 
-
+    private fun onListItemClick(position: Int ) {
+        // position is in the list!
+        // first get the name of the person clicked
+        val name = Contacts().getAll()[position].name
+        val intent = Intent(this, ContactActivity::class.java)
+        intent.putExtra("contactPos",position)
+        startActivity(intent)
     }
 
     internal class ContactAdapter(context: Context,
