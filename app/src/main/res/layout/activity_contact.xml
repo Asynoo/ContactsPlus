@@ -7,132 +7,76 @@
     android:layout_height="match_parent"
     tools:context=".ContactActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Contact details:"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/nameTV"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/nameTV"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nameTV"
-        android:layout_width="120dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:text="Name:"
-        android:textSize="30sp"
-        android:gravity="center_vertical"
-        app:layout_constraintBottom_toTopOf="@+id/phoneTV"
-        app:layout_constraintEnd_toStartOf="@+id/nameET"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="118dp"
+        android:text="Contact Details:"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/nameET"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="48dp"
         android:inputType="text"
         android:text="contactName"
-        app:layout_constraintBottom_toTopOf="@+id/phoneET"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/nameTV"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-
-    <TextView
-        android:id="@+id/phoneTV"
-        android:layout_width="120dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="466dp"
-        android:text="Phone:"
-        android:textSize="30sp"
-        android:gravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/phoneET"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTV" />
 
     <EditText
         android:id="@+id/phoneET"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:inputType="phone"
         android:text="contactNumber"
-        app:layout_constraintBottom_toBottomOf="@+id/phoneTV"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/phoneTV"
-        app:layout_constraintTop_toBottomOf="@+id/nameTV" />
-
-    <TextView
-        android:id="@+id/addressTV"
-        android:layout_width="120dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="21dp"
-        android:gravity="center_vertical"
-        android:text="Address:"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/emailTV"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneTV"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/nameET" />
 
     <EditText
         android:id="@+id/addressET"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:inputType="textEmailAddress"
         android:text="contactAddress"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="221dp" />
-
-    <TextView
-        android:id="@+id/emailTV"
-        android:layout_width="120dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:gravity="center_vertical"
-        android:text="Email:"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/urlTV"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addressTV"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/phoneET" />
 
     <EditText
         android:id="@+id/emailET"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:inputType="text"
         android:text="contactEmail"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/urlTV"
-        android:layout_width="120dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="265dp"
-        android:gravity="center_vertical"
-        android:text="Url:"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/deleteBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTV"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/addressET"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/urlET"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:inputType="text"
         android:text="contactUrl"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/emailET"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -143,6 +87,8 @@
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+
+        android:backgroundTint="#3F51B5"
         />
     <Button
         android:id="@+id/saveBtn"
@@ -152,6 +98,57 @@
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:backgroundTint="#3F51B5"
         />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="110dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/name" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/address" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/call" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:srcCompat="@drawable/email" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:srcCompat="@drawable/url" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
