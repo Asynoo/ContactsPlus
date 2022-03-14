@@ -5,13 +5,11 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.*
-import android.view.ContextMenu.ContextMenuInfo
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.asyno.contactsplus.Models.BEContact
+import com.asyno.contactsplus.models.BEContact
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -38,8 +36,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    internal class ContactAdapter(context: Context,
-                                 private val contacts: Array<BEContact>
+    internal class ContactAdapter(context: Context, private val contacts: Array<BEContact>
     ) : ArrayAdapter<BEContact>(context, 0, contacts)
     {
         private val colours = intArrayOf(

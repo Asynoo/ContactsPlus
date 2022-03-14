@@ -14,6 +14,13 @@ class ContactActivity : AppCompatActivity(){
         val contactPosition = intent.getSerializableExtra("contactPos") as Int
 
         nameET.setText(Contacts().getAll()[contactPosition].name)
+
         phoneET.setText(Contacts().getAll()[contactPosition].phone)
+
+        addressET.setText(Contacts().getAll()[contactPosition].address)
+
+        emailET.setText(Contacts().getAll()[contactPosition].email)
+
+        urlET.setText(Contacts().getAll()[contactPosition].url)
     }
 }
