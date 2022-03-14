@@ -15,130 +15,67 @@
         android:layout_marginStart="118dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="118dp"
-        android:text="Contact details:"
+        android:text="Contact Details:"
         android:textAlignment="center"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/nameTV"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
-        android:gravity="center_vertical"
-        android:text="Name:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <EditText
         android:id="@+id/nameET"
-        android:layout_width="0dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="48dp"
         android:inputType="text"
         android:text="contactName"
-        app:layout_constraintStart_toEndOf="@+id/nameTV"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/phoneTV"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:text="Phone:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTV" />
 
     <EditText
         android:id="@+id/phoneET"
-        android:layout_width="0dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:inputType="phone"
         android:text="contactNumber"
-        app:layout_constraintStart_toEndOf="@+id/phoneTV"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/nameET" />
-
-    <TextView
-        android:id="@+id/addressTV"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:text="Address:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneTV"
-        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/addressET"
-        android:layout_width="0dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:inputType="textEmailAddress"
         android:text="contactAddress"
-        app:layout_constraintStart_toEndOf="@+id/addressTV"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/phoneET" />
-
-    <TextView
-        android:id="@+id/emailTV"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:text="Email:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addressTV"
-        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/emailET"
-        android:layout_width="0dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:inputType="text"
         android:text="contactEmail"
-        app:layout_constraintStart_toEndOf="@+id/emailTV"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/addressET"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/urlTV"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:text="Url:"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTV"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/urlET"
-        android:layout_width="0dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:inputType="text"
         android:text="contactUrl"
-        app:layout_constraintStart_toEndOf="@+id/urlTV"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/emailET"
         tools:ignore="MissingConstraints" />
 
@@ -163,5 +100,55 @@
         app:layout_constraintRight_toRightOf="parent"
         android:backgroundTint="#3F51B5"
         />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="110dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/name" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/address" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/call" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:srcCompat="@drawable/email" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:srcCompat="@drawable/url" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
