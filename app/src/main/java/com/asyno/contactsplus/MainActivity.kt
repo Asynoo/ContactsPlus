@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setSupportActionBar(findViewById(R.id.my_toolbar))
         setContentView(R.layout.activity_main)
 
         val adapter = ContactAdapter(this, Contacts().getAll())
@@ -25,9 +26,17 @@ class MainActivity : AppCompatActivity() {
         lvContacts.adapter = adapter
 
         lvContacts.setOnItemClickListener { _,_,pos, _ -> onListItemClick(pos) }
+
+        addButton.setOnClickListener { a -> onListItemClick(-1) }
     }
 
     private fun onListItemClick(position: Int ) {
+        if (position == -1){
+            val intent = Intent(this, ContactActivity::class.java)
+            intent.putExtra("contactPos",position)
+            startActivity(intent)
+            return
+        }
         // position is in the list!
         // first get the name of the person clicked
         val name = Contacts().getAll()[position].name

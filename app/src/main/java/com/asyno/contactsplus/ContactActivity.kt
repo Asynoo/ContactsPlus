@@ -13,14 +13,20 @@ class ContactActivity : AppCompatActivity(){
 
         val contactPosition = intent.getSerializableExtra("contactPos") as Int
 
-        nameET.setText(Contacts().getAll()[contactPosition].name)
+        if (contactPosition == -1){
+            nameET.setText("Fill out the fields")
+        }else{
 
-        phoneET.setText(Contacts().getAll()[contactPosition].phone)
+            nameET.setText(Contacts().getAll()[contactPosition].name)
 
-        addressET.setText(Contacts().getAll()[contactPosition].address)
+            phoneET.setText(Contacts().getAll()[contactPosition].phone)
 
-        emailET.setText(Contacts().getAll()[contactPosition].email)
+            addressET.setText(Contacts().getAll()[contactPosition].address)
 
-        urlET.setText(Contacts().getAll()[contactPosition].url)
+            emailET.setText(Contacts().getAll()[contactPosition].email)
+
+            urlET.setText(Contacts().getAll()[contactPosition].url)
+        }
+
     }
 }
