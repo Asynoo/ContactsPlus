@@ -50,7 +50,7 @@
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:text="Phone:"
         android:textSize="20sp"
@@ -150,6 +150,8 @@
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+
+        android:backgroundTint="#3F51B5"
         />
     <Button
         android:id="@+id/saveBtn"
@@ -159,6 +161,7 @@
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:backgroundTint="#3F51B5"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
