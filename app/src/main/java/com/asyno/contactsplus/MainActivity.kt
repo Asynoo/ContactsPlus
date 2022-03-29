@@ -4,11 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.*
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import com.asyno.contactsplus.data.ContactRepositoryInDB
 import com.asyno.contactsplus.models.BEContact
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,16 +19,28 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSupportActionBar(findViewById(R.id.my_toolbar))
+       // setSupportActionBar(findViewById(R.id.my_toolbar))
         setContentView(R.layout.activity_main)
 
-        val adapter = ContactAdapter(this, Contacts().getAll())
+        ContactRepositoryInDB.initialize(this)
+        seedContacts()
 
-        lvContacts.adapter = adapter
+        val mRep = ContactRepositoryInDB.get()
+        val getAllObserver = Observer<List<BEContact>>{ contacts ->
+            val adapter = ContactAdapter(this, contacts)
+            lvContacts.adapter = adapter
+            Log.d("DBG", "getAll observer notified")
+        }
+        mRep.getAll().observe(this, getAllObserver)
 
         lvContacts.setOnItemClickListener { _,_,pos, _ -> onListItemClick(pos) }
 
         addButton.setOnClickListener { a -> onListItemClick(-1) }
+    }
+
+    private fun seedContacts(){
+        val mRep = ContactRepositoryInDB.get()
+        Contacts().getAll().forEach { contact ->  mRep.insert(contact)}
     }
 
     private fun onListItemClick(position: Int ) {
@@ -45,9 +58,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    internal class ContactAdapter(context: Context, private val contacts: Array<BEContact>
+    internal class ContactAdapter(
+        context: Context, private val contacts: List<BEContact>
     ) : ArrayAdapter<BEContact>(context, 0, contacts)
     {
+        val mRep = ContactRepositoryInDB.get()
         private val colours = intArrayOf(
             Color.parseColor("White"),
             Color.parseColor("White")
