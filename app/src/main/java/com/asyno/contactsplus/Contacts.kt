@@ -6,7 +6,7 @@ import java.io.Serializable
 class Contacts : Serializable {
 
 
-    val mContacts = arrayOf<BEContact>(
+    val mContacts = arrayOf(
         BEContact(1,"Tomáš", "56483251", "Kirkegade 76", "toma2614@easv365.dk", "https://example.com/belief"),
         BEContact(2,"Marco", "20201548", "Kronprinsensgade 98", "marc8509@easv365.dk", "https://www.example.edu/"),
         BEContact(3,"Danylo", "84595512", "Jyllandsgade 151", "dany0107@easv365.dk", "http://angle.example.com/"),

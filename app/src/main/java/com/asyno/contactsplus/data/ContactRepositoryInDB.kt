@@ -53,11 +53,4 @@ class ContactRepositoryInDB private constructor(private val context: Context) {
             throw IllegalStateException("Contact repo not initialized")
         }
     }
-
-
-
-
-
-
-
 }

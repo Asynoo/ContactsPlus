@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.lifecycle.Observer
 import com.asyno.contactsplus.data.ContactRepositoryInDB
 import com.asyno.contactsplus.models.BEContact
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         ContactRepositoryInDB.initialize(this)
-        seedContacts()
+        //seedContacts()
 
         val mRep = ContactRepositoryInDB.get()
         val getAllObserver = Observer<List<BEContact>>{ contacts ->
@@ -33,7 +34,9 @@ class MainActivity : AppCompatActivity() {
         }
         mRep.getAll().observe(this, getAllObserver)
 
-        lvContacts.setOnItemClickListener { _,_,pos, _ -> onListItemClick(pos) }
+        lvContacts.setOnItemClickListener { _,_,pos, _ ->
+            onListItemClick(lvContacts.adapter.getItemId(pos).toInt())
+        }
 
         addButton.setOnClickListener { a -> onListItemClick(-1) }
     }
@@ -43,18 +46,17 @@ class MainActivity : AppCompatActivity() {
         Contacts().getAll().forEach { contact ->  mRep.insert(contact)}
     }
 
-    private fun onListItemClick(position: Int ) {
-        if (position == -1){
+    private fun onListItemClick(contactId: Int ) {
+        if (contactId == -1){
             val intent = Intent(this, ContactActivity::class.java)
-            intent.putExtra("contactPos",position)
+            intent.putExtra("contactId",contactId)
             startActivity(intent)
             return
         }
-        // position is in the list!
+        // contactId is in the list!
         // first get the name of the person clicked
-        val name = Contacts().getAll()[position].name
         val intent = Intent(this, ContactActivity::class.java)
-        intent.putExtra("contactPos",position)
+        intent.putExtra("contactId",contactId)
         startActivity(intent)
     }
 
@@ -62,12 +64,14 @@ class MainActivity : AppCompatActivity() {
         context: Context, private val contacts: List<BEContact>
     ) : ArrayAdapter<BEContact>(context, 0, contacts)
     {
-        val mRep = ContactRepositoryInDB.get()
         private val colours = intArrayOf(
             Color.parseColor("White"),
             Color.parseColor("White")
         )
 
+        override fun getItemId(position: Int): Long {
+            return contacts[position].id.toLong();
+        }
         override fun getView(position: Int, v: View?, parent: ViewGroup): View {
             var v1: View? = v
             if (v1 == null) {

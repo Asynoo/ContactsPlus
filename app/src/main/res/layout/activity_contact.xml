@@ -15,7 +15,7 @@
         android:layout_marginStart="118dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="118dp"
-        android:text="Contact Details:"
+        android:text="@string/contact_details"
         android:textAlignment="center"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="48dp"
         android:inputType="text"
-        android:text="contactName"
+        android:hint="@string/name"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -40,7 +40,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:inputType="phone"
-        android:text="contactNumber"
+        android:hint="@string/phone_number"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/nameET" />
 
@@ -50,8 +50,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:inputType="textEmailAddress"
-        android:text="contactAddress"
+        android:inputType="textPostalAddress"
+        android:hint="@string/address"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/phoneET" />
 
@@ -61,8 +61,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:inputType="text"
-        android:text="contactEmail"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/addressET"
         tools:ignore="MissingConstraints" />
@@ -73,8 +73,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:inputType="text"
-        android:text="contactUrl"
+        android:inputType="textUri"
+        android:hint="@string/website"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/emailET"
         tools:ignore="MissingConstraints" />
@@ -83,7 +83,7 @@
         android:id="@+id/deleteBtn"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:text="delete"
+        android:text="@string/delete"
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -94,7 +94,7 @@
         android:id="@+id/saveBtn"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:text="save"
+        android:text="@string/save"
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"

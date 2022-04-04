@@ -6,15 +6,14 @@ import java.io.Serializable
 
 @Entity
 data class BEContact(@PrimaryKey(autoGenerate = true)
-                     var id:Int,
+                     var id: Int,
                      var name: String,
                      var phone: String,
                      var address: String,
                      var email: String,
                      var url: String
                      ) : Serializable {
-
     override fun toString(): String {
-        return "id=$id, name='$name', phone='$phone', address='$address', email='$email', url='$url')"
+        return "id=$id, name='$name', phone='$phone', address='$address', email='$email', url='$url'"
     }
 }

@@ -1,7 +1,12 @@
 package com.asyno.contactsplus
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import com.asyno.contactsplus.data.ContactRepositoryInDB
+import com.asyno.contactsplus.data.observeOnce
+import com.asyno.contactsplus.models.BEContact
 import kotlinx.android.synthetic.main.activity_contact.*
 
 class ContactActivity : AppCompatActivity(){
@@ -9,24 +14,65 @@ class ContactActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact)
 
-        saveBtn.setOnClickListener{ finish()}
+        ContactRepositoryInDB.initialize(this);
 
-        val contactPosition = intent.getSerializableExtra("contactPos") as Int
+        val contactId = intent.getSerializableExtra("contactId") as Int
 
-        if (contactPosition == -1){
-            nameET.setText("Fill out the fields")
+        if (contactId == -1){
+            saveBtn.setOnClickListener{ addContact() }
+            deleteBtn.text = "Cancel"
+            deleteBtn.setOnClickListener{ finish() }
         }else{
+            val mRep = ContactRepositoryInDB.get()
+            val editingContact = mRep.getById(contactId)
 
-            nameET.setText(Contacts().getAll()[contactPosition].name)
+            val updateObserver = Observer<BEContact>{ contact ->
+                nameET.setText(contact.name)
+                phoneET.setText(contact?.phone)
+                emailET.setText(contact?.email)
+                urlET.setText(contact?.url)
+                addressET.setText(contact?.address)
+            }
+            editingContact.observeOnce(this, updateObserver)
+            deleteBtn.setOnClickListener{
+                mRep.delete(editingContact.value!!)
+                Toast.makeText(
+                    this,
+                    editingContact.value!!.name + " deleted",
+                    Toast.LENGTH_SHORT
+                ).show()
+                finish();
+            }
+            saveBtn.setOnClickListener{
+                editingContact.value!!.name = nameET.text.toString()
+                editingContact.value!!.address = addressET.text.toString()
+                editingContact.value!!.phone = phoneET.text.toString()
+                editingContact.value!!.email = emailET.text.toString()
+                editingContact.value!!.url = urlET.text.toString()
 
-            phoneET.setText(Contacts().getAll()[contactPosition].phone)
-
-            addressET.setText(Contacts().getAll()[contactPosition].address)
-
-            emailET.setText(Contacts().getAll()[contactPosition].email)
-
-            urlET.setText(Contacts().getAll()[contactPosition].url)
+                mRep.update(editingContact.value!!)
+                Toast.makeText(
+                    this,
+                    editingContact.value!!.name + " updated",
+                    Toast.LENGTH_SHORT
+                ).show()
+                finish();
+            }
         }
+    }
 
+    private fun addContact(){
+        val mRep = ContactRepositoryInDB.get()
+        val newContact = BEContact(
+            id = 0,
+            name = nameET.text.toString(),
+            phone = phoneET.text.toString(),
+            address = addressET.text.toString(),
+            email = emailET.text.toString(),
+            url = urlET.text.toString()
+        )
+        mRep.insert(newContact);
+        Toast.makeText(this, newContact.name + " added", Toast.LENGTH_SHORT).show()
+        finish();
     }
 }
