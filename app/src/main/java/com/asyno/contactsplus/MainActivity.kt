@@ -37,8 +37,33 @@ class MainActivity : AppCompatActivity() {
         lvContacts.setOnItemClickListener { _,_,pos, _ ->
             onListItemClick(lvContacts.adapter.getItemId(pos).toInt())
         }
+    }
 
-        addButton.setOnClickListener { a -> onListItemClick(-1) }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu);
+        return true;
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id: Int = item.getItemId()
+
+        when (id) {
+            R.id.action_settings -> {
+                this.onListItemClick(-1)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.create1 -> {
+                Toast.makeText(baseContext, "CREATE", Toast.LENGTH_LONG).show()
+                true
+            }
+            else -> super.onContextItemSelected(item)
+        }
     }
 
     private fun seedContacts(){
